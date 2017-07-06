@@ -1,0 +1,51 @@
+ sbt-classloader-issue   sbt
+[info] Loading global plugins from /home/simao/.sbt/0.13/plugins
+[info] Updating {file:/home/simao/.sbt/0.13/plugins/}global-plugins...
+[info] Resolving org.fusesource.jansi#jansi;1.4 ...
+[info] Done updating.
+[info] Loading project definition from /home/simao/ats/sbt-classloader-issue/project
+[info] Updating {file:/home/simao/ats/sbt-classloader-issue/project/}sbt-classloader-issue-build...
+[info] Resolving org.fusesource.jansi#jansi;1.4 ...
+[info] Done updating.
+[info] Set current project to sbt-classloader-issue (in build file:/home/simao/ats/sbt-classloader-issue/)
+> test
+[info] Updating {file:/home/simao/ats/sbt-classloader-issue/}sbt-classloader-issue...
+[info] Resolving jline#jline;2.14.3 ...
+[info] Done updating.
+[info] Compiling 1 Scala source to /home/simao/ats/sbt-classloader-issue/target/scala-2.12/classes...
+[info] 'compiler-interface' not yet compiled for Scala 2.12.2. Compiling...
+[info]   Compilation completed in 7.529 s
+[info] Compiling 1 Scala source to /home/simao/ats/sbt-classloader-issue/target/scala-2.12/test-classes...
+[info] SbtIssueTest:
+[info] - generates a key pair key
+[info] Run completed in 605 milliseconds.
+[info] Total number of tests run: 1
+[info] Suites: completed 1, aborted 0
+[info] Tests: succeeded 1, failed 0, canceled 0, ignored 0, pending 0
+[info] All tests passed.
+[success] Total time: 10 s, completed 06-Jul-2017 14:44:45
+> test
+[info] SbtIssueTest:
+[info] - generates a key pair key *** FAILED ***
+[info]   java.security.InvalidAlgorithmParameterException: parameter object not a ECParameterSpec
+[info]   at org.bouncycastle.jcajce.provider.asymmetric.ec.KeyPairGeneratorSpi$EC.initialize(Unknown Source)
+[info]   at java.security.KeyPairGenerator.initialize(KeyPairGenerator.java:411)
+[info]   at sbt_classloader_issue.SbtIssue$.generateKeyPair(SbtIssue.scala:13)
+[info]   at sbt_classloader_issue.SbtIssueTest.$anonfun$new$1(SbtIssueTest.scala:12)
+[info]   at org.scalatest.OutcomeOf.outcomeOf(OutcomeOf.scala:85)
+[info]   at org.scalatest.OutcomeOf.outcomeOf$(OutcomeOf.scala:83)
+[info]   at org.scalatest.OutcomeOf$.outcomeOf(OutcomeOf.scala:104)
+[info]   at org.scalatest.Transformer.apply(Transformer.scala:22)
+[info]   at org.scalatest.Transformer.apply(Transformer.scala:20)
+[info]   at org.scalatest.FunSuiteLike$$anon$1.apply(FunSuiteLike.scala:186)
+[info]   ...
+[info] Run completed in 300 milliseconds.
+[info] Total number of tests run: 1
+[info] Suites: completed 1, aborted 0
+[info] Tests: succeeded 0, failed 1, canceled 0, ignored 0, pending 0
+[info] *** 1 TEST FAILED ***
+[error] Failed tests:
+[error] 	sbt_classloader_issue.SbtIssueTest
+[error] (test:test) sbt.TestsFailedException: Tests unsuccessful
+[error] Total time: 0 s, completed 06-Jul-2017 14:44:46
+> 
